@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="0" uuid="26a75b94-bf7a-4b98-86f2-21e4ae64890c">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<queryString>
+		<![CDATA[SELECT
+     materiaprima.`matNombre` AS materiaprima_matNombre,
+     detallesmateriaprima.`detmCantidad` AS materiaprima_matCantidad,
+     detallesmateriaprima.`detmUnidadDeMedida` AS materiaprima_matUnidadDeMedida,
+     materiaprima.`matEstado` AS materiaprima_matEstado
+FROM
+     `materiaprima` materiaprima
+     INNER JOIN `detallesmateriaprima` detallesmateriaprima ON materiaprima.`matId` = detallesmateriaprima.`matId_fk`
+WHERE
+     materiaprima.`matEstado` = 'Activo']]>
+	</queryString>
+	<field name="materiaprima_matNombre" class="java.lang.String"/>
+	<field name="materiaprima_matCantidad" class="java.lang.Float"/>
+	<field name="materiaprima_matUnidadDeMedida" class="java.lang.String"/>
+	<field name="materiaprima_matEstado" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="132" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="154" y="112" width="397" height="20" forecolor="#000000" backcolor="#EB6E71" uuid="a88d6702-96f1-4931-a82e-750187022ecc"/>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement x="253" y="0" width="144" height="20" forecolor="#FFFFFF" uuid="ae563ac4-7d5d-4801-8d67-b75ce496c046"/>
+					<textElement textAlignment="Right">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+			<image>
+				<reportElement x="-21" y="-20" width="595" height="152" uuid="0eb48f3e-9367-4342-8078-fa0ea76fdb98"/>
+				<imageExpression><![CDATA["reportes\\reporte_fondo1.png"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="0" y="32" width="100" height="100" uuid="64a9a683-74d9-44a8-9a45-b497aa66e12d"/>
+				<imageExpression><![CDATA["reportes\\reporte_fondo3.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement style="SubTitle" x="243" y="14" width="311" height="83" forecolor="#000000" uuid="1089e0fe-8349-4165-b4ff-dafebb92a9a4"/>
+				<textElement>
+					<font fontName="Times New Roman" size="54"/>
+				</textElement>
+				<text><![CDATA[Materia Prima]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="442" y="69" width="80" height="18" forecolor="#000000" uuid="1ba7cf96-e14e-45ef-9ad4-762d58932b0c"/>
+				<textElement>
+					<font fontName="Times New Roman" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Activas]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="353" y="113" width="95" height="18" forecolor="#FFFFFF" uuid="f54ca191-49ba-40f3-91f8-27153ad2a1a1"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Bocaditos]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="26" splitType="Stretch">
+			<staticText>
+				<reportElement style="Column header" mode="Opaque" x="0" y="7" width="138" height="18" forecolor="#FFFFFF" backcolor="#EB6E71" uuid="3b0e693e-73ed-48bc-8bf4-302fd8139da4"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" mode="Opaque" x="138" y="7" width="138" height="18" forecolor="#FFFFFF" backcolor="#EB6E71" uuid="7bca8c63-0865-464b-8c4d-bce0467666b7"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Cantidad]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" mode="Opaque" x="276" y="7" width="138" height="18" forecolor="#FFFFFF" backcolor="#EB6E71" uuid="f2a05cd4-1e25-4cd1-b384-aebd5123be4a"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Unidad de medida]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" mode="Opaque" x="414" y="7" width="138" height="18" forecolor="#FFFFFF" backcolor="#EB6E71" uuid="95548ddf-fe27-4a13-9b91-a465e8ac13a8"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Estado]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="19" splitType="Stretch">
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="0" y="0" width="555" height="18" backcolor="#FFF9D5" uuid="bd2f43f9-17cd-4331-b02d-0148c322c833"/>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="138" y="0" width="138" height="18" uuid="eed340d8-1563-4654-825e-082ab6f367b9"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{materiaprima_matCantidad}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="276" y="0" width="138" height="18" uuid="627c9553-6ec5-4cf6-bd36-b5fd9e1d20b3"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{materiaprima_matUnidadDeMedida}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="414" y="0" width="138" height="18" uuid="9b828977-a755-4f07-88b7-09a9ece51bb2"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{materiaprima_matEstado}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="2" y="0" width="138" height="18" uuid="41e98c81-361a-4511-b4bf-04f72f94ac7d"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{materiaprima_matNombre}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="111" splitType="Stretch">
+			<image hAlign="Right">
+				<reportElement x="-21" y="-43" width="597" height="154" uuid="f8353511-2b74-4b38-bdf8-7d27e1607eb2"/>
+				<imageExpression><![CDATA["reportes\\reporte_fondo2.png"]]></imageExpression>
+			</image>
+			<textField evaluationTime="Report">
+				<reportElement style="Column header" x="514" y="75" width="40" height="20" forecolor="#FFFFFF" uuid="ef096d23-31e7-4925-9d50-b64d3ade9c44"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Column header" x="434" y="75" width="80" height="20" forecolor="#FFFFFF" uuid="6bc76894-7272-49aa-892a-93306556067b"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

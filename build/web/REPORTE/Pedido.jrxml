@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="0" uuid="399b953e-765a-4734-8093-d337712186f5">
+	<property name="ireport.zoom" value="0.8264462809917363"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     pedido.`pedFechaPedido` AS pedido_pedFechaPedido,
+     pedido.`pedFechaEntrega` AS pedido_pedFechaEntrega,
+     pedido.`pedEstado` AS pedido_pedEstado,
+     pedido.`pedTotal` AS pedido_pedTotal
+FROM
+     `pedido` pedido]]>
+	</queryString>
+	<field name="pedido_pedFechaPedido" class="java.sql.Date"/>
+	<field name="pedido_pedFechaEntrega" class="java.sql.Timestamp"/>
+	<field name="pedido_pedEstado" class="java.lang.String"/>
+	<field name="pedido_pedTotal" class="java.lang.Double"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="132" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="154" y="106" width="397" height="20" forecolor="#000000" backcolor="#EB6E71" uuid="f1c00002-4b32-42cc-ae25-abbf586f2588"/>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement x="253" y="0" width="144" height="20" forecolor="#FFFFFF" uuid="23a123df-df16-446a-bcd2-0229379f14fc"/>
+					<textElement textAlignment="Right">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+			<image>
+				<reportElement x="-21" y="-20" width="598" height="152" uuid="1ec73385-e92b-4d6e-b6df-dce468e909eb"/>
+				<imageExpression><![CDATA["reportes\\reporte_fondo1.png"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="12" y="32" width="100" height="100" uuid="deb8d685-3f3f-4f9d-bc36-0aa25875b1d0"/>
+				<imageExpression><![CDATA["reportes\\LOGO CUPCAKE.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement style="SubTitle" x="317" y="14" width="238" height="100" forecolor="#000000" uuid="5b979ea0-4da6-4357-99a5-9e9ab7f37ca2"/>
+				<textElement>
+					<font fontName="Times New Roman" size="54"/>
+				</textElement>
+				<text><![CDATA[Pedidos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="443" y="69" width="80" height="18" forecolor="#000000" uuid="89d3f87e-a52c-40bf-a6b1-1e7de97af4c7"/>
+				<textElement>
+					<font fontName="Times New Roman" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Activos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="353" y="107" width="95" height="18" forecolor="#FFFFFF" uuid="8fd8aa21-c59b-478e-acb1-48cdd8970ef4"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Bocaditos]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="26" splitType="Stretch">
+			<staticText>
+				<reportElement style="Column header" mode="Opaque" x="0" y="7" width="138" height="18" forecolor="#FFFFFF" backcolor="#EB6E71" uuid="18909379-026a-40fb-80fd-4304389d0a09"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Fecha de pedido]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" mode="Opaque" x="138" y="7" width="138" height="18" forecolor="#FFFFFF" backcolor="#EB6E71" uuid="4dee205a-0a48-4105-9e6e-22cb192569e7"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Fecha de entrega]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" mode="Opaque" x="276" y="7" width="138" height="18" forecolor="#FFFFFF" backcolor="#EB6E71" uuid="4077cb94-5d98-4c0b-b573-98491dc8f6ff"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Estado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" mode="Opaque" x="414" y="7" width="138" height="18" forecolor="#FFFFFF" backcolor="#EB6E71" uuid="bd11e721-3db1-478f-9cfb-7758806fbee3"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Total del pedido]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="18" splitType="Stretch">
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="0" y="0" width="555" height="18" backcolor="#FFF9D5" uuid="05e8bc6f-bc3c-4e02-aafa-c04645bfac0b"/>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="138" y="0" width="138" height="18" uuid="b370ee4d-06f2-4605-8f30-f4d3d26f8120"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{pedido_pedFechaEntrega}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="276" y="0" width="138" height="18" uuid="ad06dce1-b3b4-427d-a435-de1bcdc33e86"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{pedido_pedEstado}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="414" y="0" width="138" height="18" uuid="862c07f5-7986-4617-ba5f-38b17b3d2c99"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{pedido_pedTotal}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="2" y="0" width="138" height="18" uuid="0f3440d2-4c18-4576-9568-850142207b64"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{pedido_pedFechaPedido}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="137" splitType="Stretch">
+			<image hAlign="Right">
+				<reportElement x="-20" y="-36" width="597" height="173" uuid="887ade17-b077-459b-897f-c778030b2c57"/>
+				<imageExpression><![CDATA["reportes\\reporte_fondo2.png"]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement style="Column header" x="414" y="103" width="80" height="20" forecolor="#FFFFFF" uuid="ce981e2c-68e5-46b2-bde3-6bc9a81121a3"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement style="Column header" x="494" y="103" width="40" height="20" forecolor="#FFFFFF" uuid="cb219f51-8819-49df-b217-7fed610f6afa"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

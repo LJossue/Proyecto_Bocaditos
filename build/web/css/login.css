@@ -1,0 +1,249 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 100vh;
+  background: #e3e6f3;
+}
+.container {
+  position: absolute;
+  height: 86vh;
+  width: 70vw;
+  background: #ffff;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
+  margin-top: 58px;
+  overflow: hidden;
+
+}
+.container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(-45deg, #dc474d, #eb9393);
+  z-index: 6;
+  transform: translateX(100%);
+  transition: 1s ease-in-out;
+}
+.logo{
+    width: 58px;
+}
+.signin-signup {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  z-index: 5;
+}
+form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 40%;
+  min-width: 238px;
+  padding: 0 10px;
+}
+form.sign-in-form {
+  opacity: 1;
+  transition: 0.5s ease-in-out;
+  transition-delay: 1s;
+}
+form.sign-up-form {
+  opacity: 0;
+  transition: 0.5s ease-in-out;
+  transition-delay: 1s;
+}
+.title {
+  font-size: 35px;
+  color: #dc474d;
+  margin-bottom: 10px;
+}
+.lost-pass {
+  text-decoration: none;
+  color: gray;
+}
+.input-field {
+  width: 100%;
+  height: 40px;
+  margin: 5px 0;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+}
+
+.input-field i {
+  flex: 1;
+  text-align: center;
+
+  color: gray;
+  font-size: 18px;
+}
+
+.input-field input {
+  flex: 5;
+  background: none;
+  border: none;
+  outline: none;
+  width: 100%;
+  font-size: 18px;
+  font-weight: 400;
+  color: gray;
+}
+.btn {
+  width: 150px;
+  height: 30px;
+  border: none;
+  background: #dc474d;
+  border-radius: 20px;
+  color: #fff;
+  font-size: 18px;
+  transition: 0.5s ease;
+  background-repeat: no-repeat;
+  font-weight: 600;
+}
+.btn:hover {
+  text-decoration: none;
+  color: #dc474d;
+  background-color: #e3e6f3;
+  cursor: pointer;
+}
+.panel-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  width: 35%;
+  min-width: 238px;
+  padding: 10px 0 0;
+  text-align: center;
+  z-index: 6;
+}
+.panel h3 {
+  font-size: 24px;
+  font-weight: 600;
+}
+.panel p {
+  font-size: 15px;
+  padding: 10px 0;
+}
+.left-panel {
+  pointer-events: none;
+}
+.content {
+  color: #fff;
+  transition: 1.1s ease-in-out;
+  transition-delay: 0.5s;
+}
+.imagen-panel {
+  width: 70%;
+  transition: 1.1s ease-in-out;
+  transition-delay: 0.4s;
+}
+.left-panel .imagen-panel,
+.left-panel .content {
+  transform: translateX(-200%);
+}
+.right-panel .imagen-panel,
+.right-panel .content {
+  transform: translateX(0);
+}
+.account-text {
+  text-decoration: none;
+  color: gray;
+  display: none;
+}
+.account-text2 {
+  text-decoration: none;
+  color: gray;
+}
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* animacion */
+.container.sign-up-mode::before {
+  transform: translateX(0);
+}
+.container.sign-up-mode .right-panel .imagen-panel,
+.container.sign-up-mode .right-panel .content {
+  transform: translateX(200%);
+}
+.container.sign-up-mode .left-panel .imagen-panel,
+.container.sign-up-mode .left-panel .content {
+  transform: translateX(0);
+}
+
+.container.sign-up-mode form.sign-in-form {
+  opacity: 0;
+}
+
+.container.sign-up-mode form.sign-up-form {
+  opacity: 1;
+}
+.container.sign-up-mode .right-panel {
+  pointer-events: none;
+}
+.container.sign-up-mode .left-panel {
+  pointer-events: all;
+}
+
+/* responsive */
+@media (max-width: 779px) {
+  .container {
+    width: 100vw;
+    height: 100vh;
+  }
+}
+@media (max-width: 635px) {
+  .container::before {
+    display: none;
+  }
+  form {
+    width: 80%;
+  }
+  form.sign-up-form {
+    display: none;
+  }
+  .container.sign-up-mode2 form.sign-up-form {
+    display: flex;
+    opacity: 1;
+  }
+  .container.sign-up-mode2 form.sign-in-form {
+    display: none;
+  }
+  .panel-container {
+    display: none;
+  }
+  .account-text {
+    display: initial;
+  }
+}
+@media (max-width: 320px) {
+  form {
+    width: 90%;
+  }
+  .account-text {
+    display: initial;
+  }
+}
