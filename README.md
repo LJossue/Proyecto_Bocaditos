@@ -34,4 +34,4 @@ Este proyecto es un sistema integral desarrollado siguiendo el patrón Modelo-Vi
 > Perfil
 
 ![Diagrama](captures/diagrama.png)
-> Diagrama de clases
+> Diagrama Entidad-Relación
