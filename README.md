@@ -32,3 +32,6 @@ Este proyecto es un sistema integral desarrollado siguiendo el patrón Modelo-Vi
 
 ![Perfil](captures/cap6.png)
 > Perfil
+
+![Diagrama](captures/diagrama.png)
+> Diagrama de clases
