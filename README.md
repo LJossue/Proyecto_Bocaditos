@@ -1,5 +1,5 @@
 # Sistema de Gestión para Repostería Bocaditos
-Este proyecto consiste en un sistema integral para la gestión de inventario, finanzas, clientes y proveedores de la reconocida repostería Bocaditos. Desarrollado utilizando Java Web (JSP), HTML, CSS, JavaScript, JasperReports y MySQL, este sistema ofrece capacidades de CRUD para mantener un control preciso sobre los activos, transacciones financieras y relaciones comerciales de la empresa.
+Este proyecto es un sistema integral desarrollado siguiendo el patrón Modelo-Vista-Controlador (MVC) para la gestión de inventario, finanzas, clientes y proveedores de la reconocida repostería Bocaditos. Utilizando Java Web (JSP), HTML, CSS, JavaScript, JasperReports y MySQL, este sistema ofrece capacidades de CRUD para mantener un control preciso sobre los activos, transacciones financieras y relaciones comerciales de la empresa.
 
 ## Características Destacadas
 - Gestión de Inventario: Registra y administra los productos disponibles en el inventario, incluyendo detalles como nombre, cantidad, precio y categoría.
